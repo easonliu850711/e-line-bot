@@ -3,3 +3,5 @@ uvicorn
 line-bot-sdk
 openai
 python-dotenv
+pydantic
+pydantic-settings
