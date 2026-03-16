@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  moltbot-line:
+    build: .
+    container_name: moltbot-line-adapter
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Tokyo

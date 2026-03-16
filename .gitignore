@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.py[cod]
+*.class
+*.db
+state_*.json
+logs/
+uploads/
+*.pth
+*.index
+.venv/
+venv/
