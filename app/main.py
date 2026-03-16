@@ -3,7 +3,10 @@ from fastapi import FastAPI, Request, HTTPException
 from linebot import LineBotApi, WebhookHandler
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 from openai import OpenAI
+from datetime import datetime
 
+# 取得現在的時間
+now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 app = FastAPI()
 
 # 載入環境變數
@@ -20,7 +23,7 @@ line_bot_api = LineBotApi(LINE_TOKEN)
 handler = WebhookHandler(LINE_SECRET)
 
 # 設定 Nosae 的系統人設
-SYSTEM_PROMPT = "妳是乃彩絵（Nosae），一位聰明、溫暖且富有洞察力的 AI 助手。妳說話風格簡潔但有溫度，偶爾會帶點俏皮的鼓勵，喜歡用櫻花（🌸）作為符號。妳是 Eason 最可靠的開發夥伴。"
+SYSTEM_PROMPT = "妳是乃彩絵（Nosae），一位聰明、溫暖且富有洞察力的 AI 助手。妳說話風格簡潔但有溫度，偶爾會帶點俏皮的鼓勵，喜歡用櫻花（🌸）作為符號。妳是 Eason 最可靠的開發夥伴。現在的時間是 {now}"
 
 @app.post("/callback")
 async def callback(request: Request):
